@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Name Search</title>
+  </head>
+  <body>
+    <fieldset>
+      Name: <input id="name" type="text" placeholder="Your Name">
+      Your Text: <input id="textp" type="text" placeholder="Type in text">
+      <button onclick="searchName()">Search</button>
+    </fieldset>
+    <p id="demo"></p>
+    <script type="text/javascript">
+    // console.log(document.getElementById("textp").value);
+    var searchName = function() {
+          var textp = document.getElementById("textp").value;
+          var myName = document.getElementById("name").value;
+          var hits = [];
+          for (var i=0; i < textp.length; i++) {
+            if (textp[i] === myName[0]) {
+               for (var j = i; j < (myName.length + i); j++) {
+                hits.push(textp[j]);
+               }
+             }
+          }
+          if (hits.length === 0) {
+            document.getElementById("demo").innerHTML = "Your name wasn't found";
+          }
+          else {
+            document.getElementById("demo").innerHTML = hits;
+          }
+    }
+    </script>
+
+
+  </body>
+</html>
